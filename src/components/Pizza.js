@@ -142,11 +142,11 @@ export default function Pizza() {
 
       <p>
         <label htmlFor="cheese">
-          <input id="cheese" type="checkbox" name="cheese" value="cheese" />{" "}
+          <input id="cheese" type="checkbox" name="cheese" value="cheese" />
           cheese
         </label>
         <label htmlFor="tomato">
-          <input id="tomato" type="checkbox" name="tomato" value="tomato" />{" "}
+          <input id="tomato" type="checkbox" name="tomato" value="tomato" />
           tomato
         </label>
         <label htmlFor="pepperoni">
@@ -159,7 +159,7 @@ export default function Pizza() {
           pepperoni
         </label>
         <label htmlFor="olives">
-          <input id="olives" type="checkbox" name="olives" value="olives" />{" "}
+          <input id="olives" type="checkbox" name="olives" value="olives" />
           olives
         </label>
       </p>
