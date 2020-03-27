@@ -91,12 +91,12 @@ export default function Pizza() {
   };
 
   //   // obtain reference to checkboxes named toppinFlavor[]
-  //   const toppinFlavor = document.forms["pizzaForm"].elements["toppinFlavor[]"];
+  //   const topppings = document.forms["pizzaForm"].elements["topppings[]"];
 
   //   //   You can loop through the list and attach an onclick handler to each checkbox with the following:
   //   // using reference to sports obtained above
-  //   for (var i = 0, len = toppinFlavor.length; i < len; i++) {
-  //     toppinFlavor[i].onclick = doSomething;
+  //   for (var i = 0, len = topppings.length; i < len; i++) {
+  //     topppings[i].onclick = doSomething;
   //   }
 
   //   // access properties of checkbox clicked using 'this' keyword
