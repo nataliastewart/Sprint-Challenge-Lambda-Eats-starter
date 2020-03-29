@@ -6,9 +6,9 @@ const Home = () => {
   return (
     <div>
       <h1>PIZZA</h1>
-      <h2>Build your own pizza and choose your toppings</h2>
+      <h2>Build your own pizza!</h2>
       <Link className="flexin" to={"/pizza"}>
-        <button>BUILD YOUR PIZZA - Click here!</button>
+        <button> Click here!</button>
       </Link>
     </div>
   );

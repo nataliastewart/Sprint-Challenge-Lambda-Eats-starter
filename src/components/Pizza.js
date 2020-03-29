@@ -9,7 +9,10 @@ const formSchema = yup.object().shape({
     .required("Please input a name")
     .min(2, "name must be more than 2 characters"),
   size: yup.string().required("must choose a pizza size"),
-  topppings: yup.boolean().oneOf([true], "must choose your toppings"),
+  cheese: yup.string(),
+  tomato: yup.string(),
+  pepperoni: yup.string(),
+  olives: yup.string(),
   instructions: yup.string().required("must include special instructions")
 });
 
@@ -21,7 +24,10 @@ export default function Pizza() {
   const [formState, setFormState] = useState({
     name: "",
     size: "",
-    toppings: "",
+    cheese: "",
+    tomato: "",
+    pepperoni: "",
+    olives: "",
     instructions: ""
   });
 
@@ -29,7 +35,10 @@ export default function Pizza() {
   const [errors, setErrors] = useState({
     name: "",
     size: "",
-    toppings: "",
+    // cheese: "",
+    // tomato: "",
+    // pepperoni: "",
+    // olives: "",
     instructions: ""
   });
 
@@ -52,19 +61,20 @@ export default function Pizza() {
         setFormState({
           name: "",
           size: "",
-          toppings: "",
+          // cheese: "",
+          // tomato: "",
+          // pepperoni: "",
+          // olives: "",
           instructions: ""
         });
       })
       .catch(err => console.log("You form was not submitted", err.response));
   };
-
+  //TOPPINGS VALIDATE---------------------------
   const validateChange = e => {
     yup
       .reach(formSchema, e.target.name)
-      .validate(
-        e.target.name === "toppings" ? e.target.checked : e.target.value
-      )
+      .validate(e.target.value)
       .then(valid => {
         setErrors({
           ...errors,
@@ -72,12 +82,15 @@ export default function Pizza() {
         });
       })
       .catch(err => {
+        console.log("err", err);
         setErrors({
           ...errors,
           [e.target.name]: err.errors[0]
         });
       });
   };
+
+  //TOPPINGS VALIDATE END------------------------
 
   const inputChange = e => {
     e.persist();
@@ -110,7 +123,7 @@ export default function Pizza() {
   //   }
 
   return (
-    <form class="pizzaForm" onSubmit={formSubmit}>
+    <form className="pizzaForm" onSubmit={formSubmit}>
       <Link to={"/"}>
         <div>Home Page</div>
       </Link>
@@ -142,11 +155,24 @@ export default function Pizza() {
 
       <p>
         <label htmlFor="cheese">
-          <input id="cheese" type="checkbox" name="cheese" value="cheese" />
+          <input
+            id="cheese"
+            type="checkbox"
+            name="cheese"
+            checked={formState.cheese}
+            onChange={inputChange}
+          />
           cheese
         </label>
         <label htmlFor="tomato">
-          <input id="tomato" type="checkbox" name="tomato" value="tomato" />
+          <input
+            id="tomato"
+            type="checkbox"
+            name="tomato"
+            value="tomato"
+            checked={formState.tomato}
+            onChange={inputChange}
+          />
           tomato
         </label>
         <label htmlFor="pepperoni">
@@ -155,11 +181,20 @@ export default function Pizza() {
             type="checkbox"
             name="pepperoni"
             value="pepperoni"
+            checked={formState.pepperoni}
+            onChange={inputChange}
           />
           pepperoni
         </label>
         <label htmlFor="olives">
-          <input id="olives" type="checkbox" name="olives" value="olives" />
+          <input
+            id="olives"
+            type="checkbox"
+            name="olives"
+            value="olives"
+            checked={formState.olives}
+            onChange={inputChange}
+          />
           olives
         </label>
       </p>
